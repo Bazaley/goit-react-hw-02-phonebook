@@ -18,7 +18,7 @@ export const Td = styled.td`
 `;
 export const Button = styled.button`
   width: 100px;
-  background-color: red;
+  background-color: ${props => (props.rename ? 'blue' : 'red')};
   color: white;
   border: none;
   padding: 4px;

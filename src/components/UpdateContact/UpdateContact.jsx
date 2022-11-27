@@ -13,15 +13,8 @@ class UpdateContact extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.onSubmit(this.state);
-
-    // this.reset();
   };
-
-  //   reset = () => {
-  //     this.setState({ name: '', number: '' });
-  //   };
 
   render() {
     return (
@@ -38,20 +31,6 @@ class UpdateContact extends Component {
             required
           />
         </label>
-        {/* <label>
-          <input
-            type="tel"
-            name="number"
-            value={this.state.number}
-            onChange={this.handleChange}
-            placeholder="Number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-          />
-        </label> */}
-
-        {/* <Button type="sumbit">Add contact</Button> */}
       </form>
     );
   }

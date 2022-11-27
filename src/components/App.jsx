@@ -12,9 +12,9 @@ class App extends Component {
   };
 
   formSubmitHandler = ({ name, number }) => {
-    const contact = this.state.contacts.find(contact => contact.name === name);
+    const contact = this.state.contacts.some(contact => contact.name === name);
     contact
-      ? alert(`${contact.name} is already in contacts`)
+      ? alert(`${name} is already in contacts`)
       : this.setState(prevState => ({
           contacts: [...prevState.contacts, { id: nanoid(), name, number }],
         }));
@@ -29,7 +29,7 @@ class App extends Component {
       contact => contact.id === e.target.dataset.id
     );
 
-    const contacts = this.state.contacts;
+    const contacts = [...this.state.contacts];
     contacts.splice(contact, 1);
     this.setState({ contacts });
   };

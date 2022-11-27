@@ -1,11 +1,11 @@
-import { Title } from './Section.styled';
+import { SectionTag } from './Section.styled';
 
 export const Section = ({ title, children }) => {
   return (
-    <section>
-      <Title>{title}</Title>
+    <SectionTag>
+      {title === 'Phonebook' ? <h1>{title}</h1> : <h2>{title}</h2>}
 
       {children}
-    </section>
+    </SectionTag>
   );
 };

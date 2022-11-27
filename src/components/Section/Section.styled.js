@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const Title = styled.h1`
+const SectionTag = styled.section`
   text-align: center;
 `;
 
-export { Title };
+export { SectionTag };

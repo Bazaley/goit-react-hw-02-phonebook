@@ -22,14 +22,12 @@ export const ContactsList = ({
             </Td>
             <Td>{number}</Td>
             <Td>
-              <Button data-id={id} rename onClick={renameContact}>
+              <Button rename onClick={() => renameContact(id)}>
                 rename
               </Button>
             </Td>
             <Td>
-              <Button data-id={id} onClick={deleteContact}>
-                delete
-              </Button>
+              <Button onClick={() => deleteContact(id)}>delete</Button>
             </Td>
           </Tr>
         );

@@ -25,32 +25,26 @@ class App extends Component {
     this.setState({ filter: e.target.value });
   };
 
-  deleteContact = e => {
-    const contact = this.state.contacts.findIndex(
-      contact => contact.id === e.target.dataset.id
-    );
-
-    const contacts = [...this.state.contacts];
-    contacts.splice(contact, 1);
-    this.setState({ contacts });
+  deleteContact = id => {
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== id),
+    });
   };
 
-  renameContact = e => {
-    const { name } = this.state.contacts.find(
-      contact => contact.id === e.target.dataset.id
-    );
+  renameContact = id => {
+    const { name } = this.state.contacts.find(contact => contact.id === id);
 
     this.setState({ userUpdate: name });
   };
 
   updateName = ({ name, id }) => {
-    const contact = this.state.contacts.find(contact => contact.id === id);
-    const contactIndex = this.state.contacts.findIndex(
-      contact => contact.id === id
-    );
-    const newName = { ...contact, name };
-    const contacts = [...this.state.contacts];
-    contacts.splice(contactIndex, 1, newName);
+    const contacts = this.state.contacts.map(contact => {
+      if (contact.id === id) {
+        return { ...contact, name };
+      }
+      return contact;
+    });
+
     this.setState({ contacts, userUpdate: null });
   };
 
